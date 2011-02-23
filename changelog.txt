@@ -1,0 +1,41 @@
+1.0
+ + FlexUnit 4.1 now supported
+ + AsUnit 4.1 now supported
+ + Added support for mocking private interfaces
+ + Added support for mocking classes and interfaces with no package
+ + Fixed bytecode incompatibility with Flash Player 10.1
+
+1.0 RC
+ + FlexUnit 4 RC now supported
+ + Static (refactor-friendly) Mock attributes
+ + Fixed several bugs (related to ordering and vectors)
+
+0.9
+ + Dynamic mocks and stubs now supported
+ + Rest and optional arguments now supported on constructors
+ + FlexUnit 4 now supported (as default)
+ + FlexUnit 1 and fluint 1 now distributed as SWCs
+ + Property stubbing (automatic properties) now supported
+ + ExpectationViolationError now presents the correct class name
+ * SetupResult.forEventDispatcher is now deprecated in favour of MockRepository.stubEvents
+
+beta 2
+ + Rest arguments supported on methods
+ + Vector.<*> supported (as return value/parameter type on mocked objects)
+ + Bug fixes
+ - Rest arguments still not supported on constructors
+
+beta 1
+ + Support for Ordered expectations
+ + Support for classes
+ + Support for optional parameters (experimental)
+ + Added SetupResult.forEventDispatcher
+ + Added IMethodOptions.dispatchEvent
+ - UnitTests still lacking
+ - No support for rest argument (... args)
+
+alpha 1
+ + Initial release
+ + Full support for unordered expectations
+ - UnitTests still lacking
+ - No support for Ordered expectations

@@ -1,0 +1,1706 @@
+<asdoc>
+
+<classRec name='StubOptions' fullname='asmock.framework:StubOptions' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\StubOptions.as' namespace='asmock.framework' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Specifies which, if any, parts of a class should be automatically stubbed upon creation
+
+	 ]]></description>
+</classRec>
+<method name='StubOptions' fullname='asmock.framework:StubOptions/StubOptions' isStatic='false' isFinal='false' isOverride='false'  param_names='stubProperties;stubEvents' param_types='Boolean;Boolean' param_defaults='undefined;undefined' result_type='*'>
+</method>
+<method name='ALL' fullname='asmock.framework:StubOptions/ALL/get' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:StubOptions'>
+<description><![CDATA[
+
+		 Specifies that both properties and events should be stubbed  
+
+		 ]]></description>
+</method>
+<method name='EVENTS' fullname='asmock.framework:StubOptions/EVENTS/get' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:StubOptions'>
+<description><![CDATA[
+
+		 Specifies that only events should be stubbed.
+
+		 ]]></description>
+</method>
+<method name='NONE' fullname='asmock.framework:StubOptions/NONE/get' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:StubOptions'>
+<description><![CDATA[
+
+		 Specifies that neither properties nor events should be stubbed  
+
+		 ]]></description>
+</method>
+<method name='PROPERTIES' fullname='asmock.framework:StubOptions/PROPERTIES/get' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:StubOptions'>
+<description><![CDATA[
+
+		 Specifies that only properties should be stubbed  
+
+		 ]]></description>
+</method>
+<method name='stubEvents' fullname='asmock.framework:StubOptions/stubEvents/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Specifies whether events should be stubbed.
+
+		 ]]></description>
+<return><![CDATA[true if events should be stubbed; false otherwise
+
+		 ]]></return>
+</method>
+<method name='stubProperties' fullname='asmock.framework:StubOptions/stubProperties/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Specifies whether properties should be stubbed.
+
+		 ]]></description>
+<return><![CDATA[true if properties should be stubbed; false otherwise
+
+		 ]]></return>
+</method>
+<field name='_stubEvents' fullname='asmock.framework:StubOptions/private:_stubEvents' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<field name='_stubProperties' fullname='asmock.framework:StubOptions/private:_stubProperties' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<classRec name='MockError' fullname='asmock.framework:MockError' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\MockError.as' namespace='asmock.framework' access='public' baseclass='Error' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 The base class for all ASMock related errors.
+
+	 ]]></description>
+</classRec>
+<method name='MockError' fullname='asmock.framework:MockError/MockError' isStatic='false' isFinal='false' isOverride='false'  param_names='message;id' param_types='String;int' param_defaults=';0' result_type='*'>
+</method>
+<classRec name='ExpectationViolationError' fullname='asmock.framework:ExpectationViolationError' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\ExpectationViolationError.as' namespace='asmock.framework' access='public' baseclass='asmock.framework:MockError' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 An error thrown when a method is called in replay mode that was not expected 
+
+	 at the time it was called or with the arguments passed. 
+
+	 ]]></description>
+</classRec>
+<method name='ExpectationViolationError' fullname='asmock.framework:ExpectationViolationError/ExpectationViolationError' isStatic='false' isFinal='false' isOverride='false'  param_names='message;id' param_types='String;int' param_defaults=';0' result_type='*'>
+</method>
+<interfaceRec name='IMethodOptions' fullname='asmock.framework:IMethodOptions' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\IMethodOptions.as' namespace='asmock.framework' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Represents the available options on the current method call expectation. Either 
+
+	 returnValue, throwError, doAction or callOriginalMethod must be called before 
+
+	 the next expectation can be recorded. 
+
+	 ]]></description>
+<author><![CDATA[Richard
+
+	 ]]></author>
+</interfaceRec>
+<method name='callOriginalMethod' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:callOriginalMethod' isStatic='false' isFinal='false' isOverride='false'  param_names='option' param_types='uint' param_defaults='0x0' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that any method calls should call the original implementation  
+
+		 of the method. This method cannot be used if the mock represents an interface.
+
+		 
+
+		 Should not be used with returnValue, doAction or throwError 
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_callOriginalMethod.as
+
+		 ]]></includeExample>
+<param><![CDATA[option A value of OriginalCallOptions
+
+		 ]]></param>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+<see><![CDATA[OriginalCallOptions
+
+		 ]]></see>
+</method>
+<method name='constraints' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:constraints' isStatic='false' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Allows arguments to be constrained by criterea rather than their recorded values.
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_constraints.as 
+
+		 ]]></includeExample>
+<param><![CDATA[constraints Array of AbstractConstraint objects, one for each parameter. Use And and Or to combine constraints.
+
+		 
+
+		 Use the static methods on Is, Property and Text to create the constraints.
+
+		 
+
+		 Should not be used with ignoreArguments()
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+<see><![CDATA[asmock.framework.constraints.Is
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Text
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Property
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.And
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Or
+
+		 ]]></see>
+</method>
+<method name='dispatchEvent' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:dispatchEvent' isStatic='false' isFinal='false' isOverride='false'  param_names='event' param_types='flash.events:Event' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Dispatches an event when the expected method is called 
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_dispatchEvent.as
+
+		 ]]></includeExample>
+<param><![CDATA[event The event to raise
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='doAction' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:doAction' isStatic='false' isFinal='false' isOverride='false'  param_names='action' param_types='Function' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Delegates the execution of the method to the Function supplied. The function 
+
+		 will be executed in the context of the mock object and should match the signature 
+
+		 of the method being mocked.
+
+		 
+
+		 Should not be used with callOriginalMethod, returnValue or throwError 
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_doAction.as
+
+		 ]]></includeExample>
+<param><![CDATA[action The function to be called instead of the method
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='ignoreArguments' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:ignoreArguments' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Changes the current expectation to no longer require the same parameters as 
+
+		 it was recorded with.
+
+		 
+
+		 Should not be used with constraints()
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_ignoreArguments.as
+
+		 ]]></includeExample>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='message' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:message' isStatic='false' isFinal='false' isOverride='false'  param_names='text' param_types='String' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies a custom message for the expected method. Any expectation related 
+
+		 errors will contain this message, along with the related error message.
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_message.as
+
+		 ]]></includeExample>
+<param><![CDATA[text The text to associate with this expectation
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='returnValue' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:returnValue' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies the value to return with the expected method is called
+
+		 
+
+		 Should not be used with callOriginalMethod, doAction or throwError
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_returnValue.as
+
+		 ]]></includeExample>
+<param><![CDATA[value The value to return.
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='throwError' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:throwError' isStatic='false' isFinal='false' isOverride='false'  param_names='error' param_types='Error' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Sets the error to throw with the expected method is called
+
+		 
+
+		 Should not be used with callOriginalMethod, doAction or returnValue
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_throwError.as
+
+		 ]]></includeExample>
+<param><![CDATA[error The error to throw
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='repeat' fullname='asmock.framework:IMethodOptions/asmock.framework:IMethodOptions:repeat/get' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IRepeat'>
+<description><![CDATA[
+
+		 Returns the expectation repeat options.
+
+		 ]]></description>
+<includeExample><![CDATA[IRepeat_times.as
+
+		 ]]></includeExample>
+<return><![CDATA[The IRepeat interface
+
+		 ]]></return>
+</method>
+<interfaceRec name='IRepeat' fullname='asmock.framework:IRepeat' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\IRepeat.as' namespace='asmock.framework' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Allows selection of how many times a given method is expected to be executed 
+
+	 ]]></description>
+<author><![CDATA[Richard
+
+	 ]]></author>
+</interfaceRec>
+<method name='any' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:any' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that the expected method can repeat any number of times. 
+
+		 ]]></description>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<method name='atLeastOnce' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:atLeastOnce' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that the expected method must occur at least once, but has 
+
+		 no upper limit on the number of times it can occur
+
+		 ]]></description>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<method name='never' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:never' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that the expected method can never occur 
+
+		 ]]></description>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<method name='once' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:once' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that the expected method must occur once only 
+
+		 ]]></description>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<method name='times' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:times' isStatic='false' isFinal='false' isOverride='false'  param_names='min;max' param_types='uint;uint' param_defaults='undefined;undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies the number of times the expected method must repeat.
+
+		 ]]></description>
+<param><![CDATA[min The minimum number of times the method must be executed
+
+		 ]]></param>
+<param><![CDATA[max The maximum number of times the method must be executed 
+
+		 ]]></param>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<method name='twice' fullname='asmock.framework:IRepeat/asmock.framework:IRepeat:twice' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that the expected method must repeat twice. 
+
+		 ]]></description>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+</method>
+<classRec name='OriginalCallOptions' fullname='asmock.framework:OriginalCallOptions' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\OriginalCallOptions.as' namespace='asmock.framework' access='public' baseclass='asmock:Enum' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Represents the options available when calling IMethodOptions.callOriginalMethod
+
+	 ]]></description>
+</classRec>
+<field name='CREATE_EXPECTATION' fullname='asmock.framework:OriginalCallOptions/CREATE_EXPECTATION' type='uint' isStatic='true' isConst='true' defaultValue='0x1' >
+<description><![CDATA[
+
+	 	 Specifies that calls to the calls to the method will  
+
+	 	 be verified with respect to arguments/constraints and repeat settings
+
+	 	 ]]></description>
+</field>
+<field name='NO_EXPECTATION' fullname='asmock.framework:OriginalCallOptions/NO_EXPECTATION' type='uint' isStatic='true' isConst='true' defaultValue='0x0' >
+<description><![CDATA[
+
+	 	 Specifies that calls to the method will not be verified 
+
+	 	 (and arguments/constraints will not be validated)
+
+	 	 ]]></description>
+</field>
+<classRec name='Expect' fullname='asmock.framework:Expect' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\Expect.as' namespace='asmock.framework' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Creates an expectation on a mock object 
+
+	 ]]></description>
+<author><![CDATA[Richard
+
+	 ]]></author>
+</classRec>
+<method name='Expect' fullname='asmock.framework:Expect/Expect' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+<metadata>
+	<Exclude owner='asmock.framework:Expect/Expect' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='call' fullname='asmock.framework:Expect/call' isStatic='true' isFinal='false' isOverride='false'  param_names='ignored' param_types='*' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Creates an expectation on the method executed 
+
+		 ]]></description>
+<includeExample><![CDATA[Expect_call.as
+
+		 ]]></includeExample>
+<param><![CDATA[ignored
+
+		 ]]></param>
+<return><![CDATA[The IMethodOptions for the expectation
+
+		 ]]></return>
+<see><![CDATA[IMethodOptions
+
+		 ]]></see>
+</method>
+<method name='notCalled' fullname='asmock.framework:Expect/notCalled' isStatic='true' isFinal='false' isOverride='false'  param_names='ignored' param_types='*' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Creates an expectation that the executed method will never be called. 
+
+		 ]]></description>
+<includeExample><![CDATA[Expect_call.as
+
+		 ]]></includeExample>
+<param><![CDATA[ignored
+
+		 ]]></param>
+<return><![CDATA[The IMethodOptions for the expectation
+
+		 ]]></return>
+<see><![CDATA[IMethodOptions
+
+		 ]]></see>
+</method>
+<classRec name='SetupResult' fullname='asmock.framework:SetupResult' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\SetupResult.as' namespace='asmock.framework' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Enables method expectation options to be set on a call 
+
+	 without call count restrictions. 
+
+	 ]]></description>
+<author><![CDATA[Richard
+
+	 ]]></author>
+</classRec>
+<method name='SetupResult' fullname='asmock.framework:SetupResult/SetupResult' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+<metadata>
+	<Exclude owner='asmock.framework:SetupResult/SetupResult' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='forCall' fullname='asmock.framework:SetupResult/forCall' isStatic='true' isFinal='false' isOverride='false'  param_names='ignored' param_types='*' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Retrieves the method options for the call supplied 
+
+		 with no call count restrictions. It is functionally equivalent 
+
+		 to calling Expect.call(method()).repeat.any();
+
+		 ]]></description>
+<includeExample><![CDATA[SetupResult_forCall.as
+
+		 ]]></includeExample>
+<param><![CDATA[ignored The expected accessor (property) or method should be called here
+
+		 ]]></param>
+<return><![CDATA[The method options for the call
+
+		 ]]></return>
+</method>
+<method name='forEventDispatcher' fullname='asmock.framework:SetupResult/forEventDispatcher' isStatic='true' isFinal='false' isOverride='false'  param_names='eventDispatcher' param_types='flash.events:IEventDispatcher' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Sets up a proxy EventDispatcher for a mock IEventDispatcher
+
+		 ]]></description>
+<includeExample><![CDATA[SetupResult_forEventDispatcher.as
+
+		 ]]></includeExample>
+<param><![CDATA[eventDispatcher The IEventDispatcher mock to handle IEventDispatcher methods for
+
+		 ]]></param>
+<metadata>
+	<Deprecated owner='asmock.framework:SetupResult/forEventDispatcher' replacement='MockRepository.stubEvents' >
+	</Deprecated>
+</metadata>
+</method>
+<classRec name='LastCall' fullname='asmock.framework:LastCall' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\LastCall.as' namespace='asmock.framework' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Provides access to method options for the last executed call. Generally used for situations 
+
+	 where another method calls the mocked method during record mode. 
+
+	 ]]></description>
+<author><![CDATA[Richard 
+
+	 ]]></author>
+</classRec>
+<method name='LastCall' fullname='asmock.framework:LastCall/LastCall' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='callOriginalMethod' fullname='asmock.framework:LastCall/callOriginalMethod' isStatic='true' isFinal='false' isOverride='false'  param_names='option' param_types='uint' param_defaults='0x1' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies that any method calls should call the original implementation  
+
+		 of the method. This method cannot be used if the mock represents an interface.
+
+		 
+
+		 Should not be used with returnValue, doAction or throwError 
+
+		 ]]></description>
+<param><![CDATA[option A value of OriginalCallOptions
+
+		 ]]></param>
+<return><![CDATA[The IMethodOptions for the current expectation
+
+		 ]]></return>
+<see><![CDATA[OriginalCallOptions
+
+		 ]]></see>
+</method>
+<method name='constraints' fullname='asmock.framework:LastCall/constraints' isStatic='true' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Allows arguments to be constrained by criterea rather than their recorded values.
+
+		 ]]></description>
+<includeExample><![CDATA[IMethodOptions_constraints.as 
+
+		 ]]></includeExample>
+<param><![CDATA[constraints Array of AbstractConstraint objects, one for each parameter. Use And and Or to combine constraints.
+
+		 
+
+		 Use the static methods on Is, Property and Text to create the constraints.
+
+		 
+
+		 Should not be used with ignoreArguments()
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+<see><![CDATA[asmock.framework.constraints.Is
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Text
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Property
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.And
+
+		 ]]></see>
+<see><![CDATA[asmock.framework.constraints.Or
+
+		 ]]></see>
+</method>
+<method name='doAction' fullname='asmock.framework:LastCall/doAction' isStatic='true' isFinal='false' isOverride='false'  param_names='action' param_types='Function' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Delegates the execution of the method to the Function supplied. The function 
+
+		 will be executed in the context of the mock object and should match the signature 
+
+		 of the method being mocked.
+
+		 
+
+		 Should not be used with callOriginalMethod, returnValue or throwError 
+
+		 ]]></description>
+<param><![CDATA[action The function to be called instead of the method
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='getOptions' fullname='asmock.framework:LastCall/asmock.framework:getOptions' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+</method>
+<method name='ignoreArguments' fullname='asmock.framework:LastCall/ignoreArguments' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Changes the current expectation to no longer require the same parameters as 
+
+		 it was recorded with.
+
+		 
+
+		 Should not be used with constraints()
+
+		 ]]></description>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='message' fullname='asmock.framework:LastCall/message' isStatic='true' isFinal='false' isOverride='false'  param_names='text' param_types='String' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies a custom message for the expected method. Any expectation related 
+
+		 errors will contain this message, along with the related error message.
+
+		 ]]></description>
+<param><![CDATA[text The text to associate with this expectation
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='returnValue' fullname='asmock.framework:LastCall/returnValue' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Specifies the value to return with the expected method is called
+
+		 
+
+		 Should not be used with callOriginalMethod, doAction or throwError
+
+		 ]]></description>
+<param><![CDATA[value The value to return.
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='throwError' fullname='asmock.framework:LastCall/throwError' isStatic='true' isFinal='false' isOverride='false'  param_names='error' param_types='Error' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 Sets the error to throw with the expected method is called
+
+		 
+
+		 Should not be used with callOriginalMethod, doAction or returnValue
+
+		 ]]></description>
+<param><![CDATA[error The error to throw
+
+		 ]]></param>
+<return><![CDATA[The method options for the current method
+
+		 ]]></return>
+</method>
+<method name='repeat' fullname='asmock.framework:LastCall/repeat/get' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework:IRepeat'>
+<description><![CDATA[
+
+		 Returns the expectation repeat options.
+
+		 ]]></description>
+<return><![CDATA[The IRepeat interface
+
+		 ]]></return>
+</method>
+<classRec name='ASMockInterceptor' fullname='asmock.framework:ASMockInterceptor' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\ASMockInterceptor.as' namespace='asmock.framework' access='public' baseclass='Object' interfaces='org.floxy:IInterceptor' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ASMockInterceptor' fullname='asmock.framework:ASMockInterceptor/ASMockInterceptor' isStatic='false' isFinal='false' isOverride='false'  param_names='repository;mockedObject' param_types='asmock.framework:MockRepository;asmock.framework:IMockedObject' param_defaults='undefined;undefined' result_type='*'>
+</method>
+<method name='intercept' fullname='asmock.framework:ASMockInterceptor/intercept' isStatic='false' isFinal='false' isOverride='false'  param_names='invocation' param_types='org.floxy:IInvocation' param_defaults='undefined' result_type='void'>
+</method>
+<field name='_mockedObject' fullname='asmock.framework:ASMockInterceptor/private:_mockedObject' type='asmock.framework:IMockedObject' isStatic='false' isConst='false' >
+</field>
+<field name='_repository' fullname='asmock.framework:ASMockInterceptor/private:_repository' type='asmock.framework:MockRepository' isStatic='false' isConst='false' >
+</field>
+<classRec name='MockRepository' fullname='asmock.framework:MockRepository' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\MockRepository.as' namespace='asmock.framework' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Creates and manages mock objects 
+
+	 ]]></description>
+<author><![CDATA[Richard Szalay 
+
+	 ]]></author>
+</classRec>
+<method name='MockRepository' fullname='asmock.framework:MockRepository/MockRepository' isStatic='false' isFinal='false' isOverride='false'  param_names='proxyRepository' param_types='org.floxy:IProxyRepository' param_defaults='null' result_type='*'>
+<description><![CDATA[
+
+		 Creates a new instance of MockRepository, which will track 
+
+		 the state of mocks it creates through createStub, createDynamic,
+
+		 and createStrict.
+
+		 ]]></description>
+<param><![CDATA[proxyRepository Optionally provides the proxy repository to 
+
+		 use for preparation/creation of mocks. If null, uses 
+
+		 MockRepository.defaultProxyRepository, which is shared across all instances 
+
+		 of MockRepository.
+
+		 ]]></param>
+</method>
+<method name='backToRecordAll' fullname='asmock.framework:MockRepository/backToRecordAll' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Moves all mock objects created by this repository back into 
+
+		 record mode. Further calls to the object will be recorded 
+
+		 as expectations. Any previous expectations on the objects are not cleared.
+
+		 ]]></description>
+</method>
+<method name='backToRecord' fullname='asmock.framework:MockRepository/backToRecord' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Moves the specified mock object back into record mode. Further 
+
+		 calls to the object will be recorded as expectations.
+
+		 ]]></description>
+<param><![CDATA[mock The object to move to record
+
+		 ]]></param>
+</method>
+<method name='createDynamicRecordMockState' fullname='asmock.framework:MockRepository/private:createDynamicRecordMockState' isStatic='false' isFinal='false' isOverride='false'  param_names='mockObj' param_types='Object' param_defaults='undefined' result_type='asmock.framework.impl:IMockState'>
+</method>
+<method name='createDynamic' fullname='asmock.framework:MockRepository/createDynamic' isStatic='false' isFinal='false' isOverride='false'  param_names='cls;constructorArguments' param_types='Class;Array' param_defaults='undefined;null' result_type='Object'>
+<description><![CDATA[
+
+		 Creates an instance of the mock for the class specified by 
+
+		 cls. The class supplied must be prepared by using the prepare 
+
+		 method, or by using an <a href="http://asmock.sourceforge.net/integration.htm">framework 
+
+		 integration</a> class. Dynamic mocks call the original method when an 
+
+		 method occurs (one that hasn't been setup using SetupResult.forCall or Expect.call).  
+
+		 For this reason, createDynamic can only be used with concrete classes (not interfaces).
+
+		 ]]></description>
+<param><![CDATA[cls The class or interface to create a mock for
+
+		 ]]></param>
+<return><![CDATA[An instance of the type specified by cls
+
+		 ]]></return>
+<see><![CDATA[prepare
+
+		 ]]></see>
+<throws><![CDATA[ArgumentException Thrown if cls has not been prepared
+
+		 ]]></throws>
+</method>
+<method name='createRecordMockState' fullname='asmock.framework:MockRepository/private:createRecordMockState' isStatic='false' isFinal='false' isOverride='false'  param_names='mockObj' param_types='Object' param_defaults='undefined' result_type='asmock.framework.impl:IMockState'>
+</method>
+<method name='createStrict' fullname='asmock.framework:MockRepository/createStrict' isStatic='false' isFinal='false' isOverride='false'  param_names='cls;constructorArguments' param_types='Class;Array' param_defaults='undefined;null' result_type='Object'>
+<description><![CDATA[
+
+		 Creates an instance of the mock for the class specified by 
+
+		 cls. The class supplied must be prepared by using the prepare 
+
+		 method, or by using an <a href="http://asmock.sourceforge.net/integration.htm">framework 
+
+		 integration</a> class. Strict mocks throw ExpectationViolationError errors when an unexpected
+
+		 method occurs (one that hasn't been setup using SetupResult.forCall or Expect.call). 
+
+		 ]]></description>
+<param><![CDATA[cls The class or interface to create a mock for
+
+		 ]]></param>
+<return><![CDATA[An instance of the type specified by cls
+
+		 ]]></return>
+<see><![CDATA[prepare
+
+		 ]]></see>
+<throws><![CDATA[ArgumentException Thrown if cls has not been prepared
+
+		 ]]></throws>
+</method>
+<method name='createStubRecordMockState' fullname='asmock.framework:MockRepository/private:createStubRecordMockState' isStatic='false' isFinal='false' isOverride='false'  param_names='mockObj' param_types='Object' param_defaults='undefined' result_type='asmock.framework.impl:IMockState'>
+</method>
+<method name='createStub' fullname='asmock.framework:MockRepository/createStub' isStatic='false' isFinal='false' isOverride='false'  param_names='cls;stubOptions;constructorArguments' param_types='Class;asmock.framework:StubOptions;Array' param_defaults='undefined;null;null' result_type='Object'>
+<description><![CDATA[
+
+		 Creates an instance of the mock for the class specified by 
+
+		 cls. The class supplied must be prepared by using the prepare 
+
+		 method, or by using an <a href="http://asmock.sourceforge.net/integration.htm">framework 
+
+		 integration</a> class. Stubs call return null (or false or 0) when an 
+
+		 method occurs (one that hasn't been setup using SetupResult.forCall or Expect.call).  
+
+		 ]]></description>
+<param><![CDATA[cls The class or interface to create a mock for
+
+		 ]]></param>
+<param><![CDATA[stubOptions Specifies whether to stub properties or events. Defaults to StubOptions.All (both properties and events)
+
+		 ]]></param>
+<param><![CDATA[constructorArguments The arguments to pass to the concrete class's constructor (can be left null when stubbing interfaces)
+
+		 ]]></param>
+<return><![CDATA[An instance of the type specified by cls
+
+		 ]]></return>
+<see><![CDATA[prepare
+
+		 ]]></see>
+<throws><![CDATA[ArgumentException Thrown if cls has not been prepared
+
+		 ]]></throws>
+</method>
+<method name='create' fullname='asmock.framework:MockRepository/create' isStatic='false' isFinal='false' isOverride='false'  param_names='cls;args' param_types='Class;Array' param_defaults='undefined;null' result_type='Object'>
+<description><![CDATA[
+
+		 Creates an instance of the mock for the class specified by 
+
+		 cls. The class supplied must be prepared by using the prepare 
+
+		 method, or by using an <a href="http://asmock.sourceforge.net/integration.htm">framework 
+
+		 integration</a> class.
+
+		 ]]></description>
+<param><![CDATA[cls The class or interface to create a mock for
+
+		 ]]></param>
+<return><![CDATA[An instance of the type specified by cls
+
+		 ]]></return>
+<see><![CDATA[prepare
+
+		 ]]></see>
+<throws><![CDATA[ArgumentException Thrown if cls has not been prepared
+
+		 ]]></throws>
+<metadata>
+	<Deprecated owner='asmock.framework:MockRepository/create' replacement='createStrict' >
+	</Deprecated>
+</metadata>
+</method>
+<method name='getMockProperty' fullname='asmock.framework:MockRepository/asmock_internal:getMockProperty' isStatic='false' isFinal='false' isOverride='false'  param_names='mock;propertyName' param_types='Object;String' param_defaults='undefined;undefined' result_type='Object'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:getMockProperty' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='getStubbedProperties' fullname='asmock.framework:MockRepository/private:getStubbedProperties' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='flash.utils:Dictionary'>
+</method>
+<method name='getStubbedPropertyValues' fullname='asmock.framework:MockRepository/private:getStubbedPropertyValues' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='flash.utils:Dictionary'>
+</method>
+<method name='isMockObjectFromThisRepository' fullname='asmock.framework:MockRepository/private:isMockObjectFromThisRepository' isStatic='false' isFinal='false' isOverride='false'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='void'>
+</method>
+<method name='isPropertyStubbed' fullname='asmock.framework:MockRepository/isPropertyStubbed' isStatic='false' isFinal='false' isOverride='false'  param_names='mock;propertyName' param_types='Object;String' param_defaults='undefined;undefined' result_type='Boolean'>
+<description><![CDATA[
+
+		 Determines whether the property, specified by name, has already been stubbed. 
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_stubProperty.as
+
+		 ]]></includeExample>
+<param><![CDATA[mock The object, created by one of the create methods, that contains the property
+
+		 ]]></param>
+<param><![CDATA[propertyName The name of the property to check 
+
+		 ]]></param>
+</method>
+<method name='isPropertyValidForStubbing' fullname='asmock.framework:MockRepository/private:isPropertyValidForStubbing' isStatic='false' isFinal='false' isOverride='false'  param_names='property' param_types='org.flemit.reflection:PropertyInfo' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='lastMethodCall' fullname='asmock.framework:MockRepository/asmock_internal:lastMethodCall' isStatic='false' isFinal='false' isOverride='false'  param_names='mockedInstance' param_types='Object' param_defaults='undefined' result_type='asmock.framework:IMethodOptions'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:lastMethodCall' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='methodCall' fullname='asmock.framework:MockRepository/asmock_internal:methodCall' isStatic='false' isFinal='false' isOverride='false'  param_names='invocation;target;method;arguments' param_types='org.floxy:IInvocation;Object;org.flemit.reflection:MethodInfo;Array' param_defaults='undefined;undefined;undefined;undefined' result_type='*'>
+<description><![CDATA[
+
+		 Registers a method call from a mock object 
+
+		 ]]></description>
+<param><![CDATA[invocation The current method invocation
+
+		 ]]></param>
+<param><![CDATA[target The object the invocation was made on
+
+		 ]]></param>
+<param><![CDATA[method The method represented by the invocation
+
+		 ]]></param>
+<param><![CDATA[arguments The arguments sent to the method 
+
+		 ]]></param>
+<return><![CDATA[The value to return from the method
+
+		 ]]></return>
+<private><![CDATA[]]></private>
+</method>
+<method name='ordered' fullname='asmock.framework:MockRepository/ordered' isStatic='false' isFinal='false' isOverride='false'  param_names='callback' param_types='Function' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Changes the mode to ordered during the execution of the callback function. 
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_ordered.as
+
+		 ]]></includeExample>
+<param><![CDATA[callback The function that contains all the calls to record as ordered expectations
+
+		 ]]></param>
+</method>
+<method name='popRecorder' fullname='asmock.framework:MockRepository/private:popRecorder' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='prepare' fullname='asmock.framework:MockRepository/prepare' isStatic='false' isFinal='false' isOverride='false'  param_names='classes' param_types='Array' param_defaults='undefined' result_type='flash.events:IEventDispatcher'>
+<description><![CDATA[
+
+		 Asynchronously prepares mocks of the classes and interfaces 
+
+		 supplied in the classes argument. Objects cannot be mocked until they 
+
+		 have been prepared.  
+
+		 
+
+		 <p>Users of supported <a href="http://asmock.sourceforge.net/integration.htm" target="_blank">testing frameworks</a> 
+
+		 can use an example base class to skip this step.</p>
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_prepare.as
+
+		 
+
+		 ]]></includeExample>
+<param><![CDATA[classes A list of classes to be prepared (separately) for mocking
+
+		 ]]></param>
+<return><![CDATA[An IEventDispatcher that will dispatch the Event.COMPLETE event
+
+		 when it is finished.
+
+		 ]]></return>
+</method>
+<method name='pushRecorder' fullname='asmock.framework:MockRepository/private:pushRecorder' isStatic='false' isFinal='false' isOverride='false'  param_names='newRecorder' param_types='asmock.framework.impl:IMethodRecorder' param_defaults='undefined' result_type='void'>
+</method>
+<method name='replayAll' fullname='asmock.framework:MockRepository/replayAll' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Sets all mock objects created by this repository into replay mode. 
+
+		 All further calls on any mock object will be matched against 
+
+		 any recorded expectations.
+
+		 ]]></description>
+</method>
+<method name='replayCore' fullname='asmock.framework:MockRepository/private:replayCore' isStatic='false' isFinal='false' isOverride='false'  param_names='mock;checkInsideOrdering' param_types='Object;Boolean' param_defaults='undefined;undefined' result_type='void'>
+</method>
+<method name='replay' fullname='asmock.framework:MockRepository/replay' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Sets the mock object into replay mode. All further method calls on the 
+
+		 object will be matched against any recorded expectations.
+
+		 ]]></description>
+<param><![CDATA[mock The object to set to replay 
+
+		 ]]></param>
+</method>
+<method name='setMockProperty' fullname='asmock.framework:MockRepository/asmock_internal:setMockProperty' isStatic='false' isFinal='false' isOverride='false'  param_names='mock;propertyName;propertyValue' param_types='Object;String;Object' param_defaults='undefined;undefined;undefined' result_type='void'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:setMockProperty' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='setVerifyError' fullname='asmock.framework:MockRepository/asmock_internal:setVerifyError' isStatic='true' isFinal='false' isOverride='false'  param_names='proxy;error' param_types='Object;Error' param_defaults='undefined;undefined' result_type='void'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:setVerifyError' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='stubAllProperties' fullname='asmock.framework:MockRepository/stubAllProperties' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Stubs all the properties on the specified mock so each property's value  
+
+		 value can be assigned/retrieved. After calling stubAllProperties, no expectations 
+
+		 can be made on any of the mock's properties.
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_stubPropertyByName.as
+
+		 ]]></includeExample>
+<param><![CDATA[notUsed The name of the property to stub
+
+		 ]]></param>
+</method>
+<method name='stubEvents' fullname='asmock.framework:MockRepository/stubEvents' isStatic='false' isFinal='false' isOverride='false'  param_names='eventDispatcher' param_types='flash.events:IEventDispatcher' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Stubs all the IEventDispatcher events to a real event dispatcher so that 
+
+		 events are wired up. After using this method, expectations cannot be put on 
+
+		 IEventDispatcher methods.
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_stubEvents.as
+
+		 ]]></includeExample>
+<param><![CDATA[eventDispatcher The IEventDispatcher mock to handle IEventDispatcher methods for
+
+		 ]]></param>
+</method>
+<method name='stubPropertyByName' fullname='asmock.framework:MockRepository/stubPropertyByName' isStatic='false' isFinal='false' isOverride='false'  param_names='mock;propertyName' param_types='Object;String' param_defaults='undefined;undefined' result_type='void'>
+<description><![CDATA[
+
+		 Stubs the property, specified by it's name, so that 
+
+		 it's value can be assigned/retrieved. After calling stubPropertyByName, no expectations 
+
+		 can be made on that property.
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_stubPropertyByName.as
+
+		 ]]></includeExample>
+<param><![CDATA[notUsed The name of the property to stub
+
+		 ]]></param>
+</method>
+<method name='stubProperty' fullname='asmock.framework:MockRepository/stubProperty' isStatic='false' isFinal='false' isOverride='false'  param_names='notUsed' param_types='*' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Stubs the property, specified with an actual call to the property, so that 
+
+		 it's value can be assigned/retrieved. After calling stubProperty, no expectations 
+
+		 can be made on it.
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_stubProperty.as
+
+		 ]]></includeExample>
+<param><![CDATA[notUsed The actual property (not it's name) of the property to stub
+
+		 ]]></param>
+</method>
+<method name='unordered' fullname='asmock.framework:MockRepository/unordered' isStatic='false' isFinal='false' isOverride='false'  param_names='callback' param_types='Function' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Changes the mode to unordered during the execution of the callback function. The default 
+
+		 mode is unordered, so this call is only necessary to include unordered expectations while 
+
+		 in ordered mode. 
+
+		 ]]></description>
+<includeExample><![CDATA[MockRepository_unordered.as
+
+		 ]]></includeExample>
+<param><![CDATA[callback The function that contains all the calls to record as unordered expectations
+
+		 ]]></param>
+</method>
+<method name='verifyAll' fullname='asmock.framework:MockRepository/verifyAll' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Verifies that all expectations on all mock objects 
+
+		 created by this repository have been satisfied. 
+
+		 This method (or verify) should be called at the 
+
+		 end of each test.
+
+		 ]]></description>
+<throws><![CDATA[ExpectationViolationException Thrown if any expectation has not been satisfied.
+
+		 ]]></throws>
+</method>
+<method name='verify' fullname='asmock.framework:MockRepository/verify' isStatic='false' isFinal='false' isOverride='false'  param_names='mock' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 Verifies that all expectations on the specified mock object 
+
+		 have been satisfied. This method (or verifyAll) should be 
+
+		 called at the end of each test. 
+
+		 ]]></description>
+<param><![CDATA[mock The mock object to verify.
+
+		 ]]></param>
+<throws><![CDATA[ExpectationViolationException Thrown if any expectation has not been satisfied.
+
+		 ]]></throws>
+</method>
+<method name='defaultProxyRepository' fullname='asmock.framework:MockRepository/defaultProxyRepository/get' isStatic='true' isFinal='false' isOverride='false'  result_type='org.floxy:IProxyRepository'>
+</method>
+<method name='lastMockedObject' fullname='asmock.framework:MockRepository/lastMockedObject/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='recorder' fullname='asmock.framework:MockRepository/asmock_internal:recorder/get' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework.impl:IMethodRecorder'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:recorder/get' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='replayer' fullname='asmock.framework:MockRepository/asmock_internal:replayer/get' isStatic='false' isFinal='false' isOverride='false'  result_type='asmock.framework.impl:IMethodRecorder'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:replayer/get' name='Exclude' >
+	</Exclude>
+</metadata>
+</method>
+<method name='lastMockedObject' fullname='asmock.framework:MockRepository/lastMockedObject/set' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<field name='_defaultProxyRepository' fullname='asmock.framework:MockRepository/private:_defaultProxyRepository' type='org.floxy:IProxyRepository' isStatic='true' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_lastMockedObject' fullname='asmock.framework:MockRepository/private:_lastMockedObject' type='Object' isStatic='false' isConst='false' >
+</field>
+<field name='_mockBases' fullname='asmock.framework:MockRepository/private:_mockBases' type='flash.utils:Dictionary' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_mockObjectStates' fullname='asmock.framework:MockRepository/private:_mockObjectStates' type='flash.utils:Dictionary' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_mockObjects' fullname='asmock.framework:MockRepository/private:_mockObjects' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_proxyMockRepositories' fullname='asmock.framework:MockRepository/private:_proxyMockRepositories' type='flash.utils:Dictionary' isStatic='true' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_proxyRepository' fullname='asmock.framework:MockRepository/private:_proxyRepository' type='org.floxy:IProxyRepository' isStatic='false' isConst='false' >
+</field>
+<field name='_recorders' fullname='asmock.framework:MockRepository/private:_recorders' type='Array' isStatic='false' isConst='false' >
+</field>
+<field name='_repeatableMethods' fullname='asmock.framework:MockRepository/private:_repeatableMethods' type='asmock.framework.methodRecorders:ProxyMethodExpectationsDictionary' isStatic='false' isConst='false' >
+</field>
+<field name='_stubbedProperties' fullname='asmock.framework:MockRepository/private:_stubbedProperties' type='flash.utils:Dictionary' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='_stubbedPropertyValues' fullname='asmock.framework:MockRepository/private:_stubbedPropertyValues' type='flash.utils:Dictionary' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='lastRepository' fullname='asmock.framework:MockRepository/asmock_internal:lastRepository' type='asmock.framework:MockRepository' isStatic='true' isConst='false' >
+<description><![CDATA[
+
+		 Gets or sets the last used MockRepository
+
+		 ]]></description>
+<private><![CDATA[]]></private>
+<metadata>
+	<Exclude owner='asmock.framework:MockRepository/asmock_internal:lastRepository' name='Exclude' >
+	</Exclude>
+</metadata>
+</field>
+<classRec name='AbstractConstraint' fullname='asmock.framework.constraints:AbstractConstraint' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\AbstractConstraint.as' namespace='asmock.framework.constraints' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='AbstractConstraint' fullname='asmock.framework.constraints:AbstractConstraint/AbstractConstraint' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:AbstractConstraint/eval' isStatic='false' isFinal='false' isOverride='false'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:AbstractConstraint/message/get' isStatic='false' isFinal='false' isOverride='false'  result_type='String'>
+</method>
+<classRec name='PropertyConstraint' fullname='asmock.framework.constraints:PropertyConstraint' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\PropertyConstraint.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='PropertyConstraint' fullname='asmock.framework.constraints:PropertyConstraint/PropertyConstraint' isStatic='false' isFinal='false' isOverride='false'  param_names='propertyName;constraint' param_types='String;asmock.framework.constraints:AbstractConstraint' param_defaults='undefined;undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:PropertyConstraint/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:PropertyConstraint/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='PROPERTY_NOT_FOUND_ERRORID' fullname='asmock.framework.constraints:PropertyConstraint/private:PROPERTY_NOT_FOUND_ERRORID' type='int' isStatic='true' isConst='true' defaultValue='1069' >
+</field>
+<field name='_constraint' fullname='asmock.framework.constraints:PropertyConstraint/private:_constraint' type='asmock.framework.constraints:AbstractConstraint' isStatic='false' isConst='false' >
+</field>
+<field name='_propertyName' fullname='asmock.framework.constraints:PropertyConstraint/private:_propertyName' type='String' isStatic='false' isConst='false' >
+</field>
+<classRec name='ComparingConstraint' fullname='asmock.framework.constraints:ComparingConstraint' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\ComparingConstraint.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ComparingConstraint' fullname='asmock.framework.constraints:ComparingConstraint/ComparingConstraint' isStatic='false' isFinal='false' isOverride='false'  param_names='value;greater;andEqual' param_types='Object;Boolean;Boolean' param_defaults='undefined;undefined;undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:ComparingConstraint/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:ComparingConstraint/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_andEqual' fullname='asmock.framework.constraints:ComparingConstraint/private:_andEqual' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<field name='_greater' fullname='asmock.framework.constraints:ComparingConstraint/private:_greater' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<field name='_value' fullname='asmock.framework.constraints:ComparingConstraint/private:_value' type='Object' isStatic='false' isConst='false' >
+</field>
+<classRec name='ArrayLength' fullname='asmock.framework.constraints:ArrayLength' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\ArrayLength.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ArrayLength' fullname='asmock.framework.constraints:ArrayLength/ArrayLength' isStatic='false' isFinal='false' isOverride='false'  param_names='constraint' param_types='asmock.framework.constraints:AbstractConstraint' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:ArrayLength/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:ArrayLength/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_constraint' fullname='asmock.framework.constraints:ArrayLength/private:_constraint' type='asmock.framework.constraints:AbstractConstraint' isStatic='false' isConst='false' >
+</field>
+<classRec name='Like' fullname='asmock.framework.constraints:Like' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Like.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Like' fullname='asmock.framework.constraints:Like/Like' isStatic='false' isFinal='false' isOverride='false'  param_names='expr' param_types='RegExp' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Like/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Like/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_expr' fullname='asmock.framework.constraints:Like/private:_expr' type='RegExp' isStatic='false' isConst='false' >
+</field>
+<classRec name='ArrayEquals' fullname='asmock.framework.constraints:ArrayEquals' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\ArrayEquals.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ArrayEquals' fullname='asmock.framework.constraints:ArrayEquals/ArrayEquals' isStatic='false' isFinal='false' isOverride='false'  param_names='values' param_types='Array' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:ArrayEquals/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:ArrayEquals/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_values' fullname='asmock.framework.constraints:ArrayEquals/private:_values' type='Array' isStatic='false' isConst='false' >
+</field>
+<classRec name='TypeOf' fullname='asmock.framework.constraints:TypeOf' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\TypeOf.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='TypeOf' fullname='asmock.framework.constraints:TypeOf/TypeOf' isStatic='false' isFinal='false' isOverride='false'  param_names='cls' param_types='Class' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:TypeOf/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:TypeOf/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_class' fullname='asmock.framework.constraints:TypeOf/private:_class' type='Class' isStatic='false' isConst='false' >
+</field>
+<classRec name='And' fullname='asmock.framework.constraints:And' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\And.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='And' fullname='asmock.framework.constraints:And/And' isStatic='false' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:And/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:And/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_constraints' fullname='asmock.framework.constraints:And/private:_constraints' type='Array' isStatic='false' isConst='false' >
+</field>
+<classRec name='Not' fullname='asmock.framework.constraints:Not' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Not.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Not' fullname='asmock.framework.constraints:Not/Not' isStatic='false' isFinal='false' isOverride='false'  param_names='constraint' param_types='asmock.framework.constraints:AbstractConstraint' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Not/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Not/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_constraint' fullname='asmock.framework.constraints:Not/private:_constraint' type='asmock.framework.constraints:AbstractConstraint' isStatic='false' isConst='false' >
+</field>
+<classRec name='EndsWith' fullname='asmock.framework.constraints:EndsWith' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\EndsWith.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='EndsWith' fullname='asmock.framework.constraints:EndsWith/EndsWith' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='String' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:EndsWith/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:EndsWith/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_value' fullname='asmock.framework.constraints:EndsWith/private:_value' type='String' isStatic='false' isConst='false' >
+</field>
+<classRec name='OneOf' fullname='asmock.framework.constraints:OneOf' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\OneOf.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='OneOf' fullname='asmock.framework.constraints:OneOf/OneOf' isStatic='false' isFinal='false' isOverride='false'  param_names='items' param_types='Array' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:OneOf/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:OneOf/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_items' fullname='asmock.framework.constraints:OneOf/private:_items' type='Array' isStatic='false' isConst='false' >
+</field>
+<classRec name='PredicateConstraint' fullname='asmock.framework.constraints:PredicateConstraint' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\PredicateConstraint.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='PredicateConstraint' fullname='asmock.framework.constraints:PredicateConstraint/PredicateConstraint' isStatic='false' isFinal='false' isOverride='false'  param_names='func' param_types='Function' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:PredicateConstraint/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:PredicateConstraint/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_func' fullname='asmock.framework.constraints:PredicateConstraint/private:_func' type='Function' isStatic='false' isConst='false' >
+</field>
+<classRec name='StartsWith' fullname='asmock.framework.constraints:StartsWith' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\StartsWith.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='StartsWith' fullname='asmock.framework.constraints:StartsWith/StartsWith' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='String' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:StartsWith/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:StartsWith/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_value' fullname='asmock.framework.constraints:StartsWith/private:_value' type='String' isStatic='false' isConst='false' >
+</field>
+<classRec name='Anything' fullname='asmock.framework.constraints:Anything' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Anything.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Anything' fullname='asmock.framework.constraints:Anything/Anything' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Anything/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Anything/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<classRec name='Or' fullname='asmock.framework.constraints:Or' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Or.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Or' fullname='asmock.framework.constraints:Or/Or' isStatic='false' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Or/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Or/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_constraints' fullname='asmock.framework.constraints:Or/private:_constraints' type='Array' isStatic='false' isConst='false' >
+</field>
+<classRec name='Text' fullname='asmock.framework.constraints:Text' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Text.as' namespace='asmock.framework.constraints' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='contains' fullname='asmock.framework.constraints:Text/contains' isStatic='true' isFinal='false' isOverride='false'  param_names='innerString' param_types='String' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='endsWith' fullname='asmock.framework.constraints:Text/endsWith' isStatic='true' isFinal='false' isOverride='false'  param_names='end' param_types='String' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='like' fullname='asmock.framework.constraints:Text/like' isStatic='true' isFinal='false' isOverride='false'  param_names='expression' param_types='RegExp' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='startsWith' fullname='asmock.framework.constraints:Text/startsWith' isStatic='true' isFinal='false' isOverride='false'  param_names='start' param_types='String' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<classRec name='Same' fullname='asmock.framework.constraints:Same' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Same.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Same' fullname='asmock.framework.constraints:Same/Same' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Same/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Same/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_value' fullname='asmock.framework.constraints:Same/private:_value' type='Object' isStatic='false' isConst='false' >
+</field>
+<classRec name='Contains' fullname='asmock.framework.constraints:Contains' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Contains.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Contains' fullname='asmock.framework.constraints:Contains/Contains' isStatic='false' isFinal='false' isOverride='false'  param_names='innerString' param_types='String' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Contains/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Contains/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_innerString' fullname='asmock.framework.constraints:Contains/private:_innerString' type='String' isStatic='false' isConst='false' >
+</field>
+<classRec name='PropertyIs' fullname='asmock.framework.constraints:PropertyIs' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\PropertyIs.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:PropertyConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='PropertyIs' fullname='asmock.framework.constraints:PropertyIs/PropertyIs' isStatic='false' isFinal='false' isOverride='false'  param_names='propertyName;expectedValue' param_types='String;Object' param_defaults='undefined;undefined' result_type='*'>
+</method>
+<classRec name='Is' fullname='asmock.framework.constraints:Is' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Is.as' namespace='asmock.framework.constraints' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Provides static methods that create general constraints to be used with 
+
+	 IMethodOptions.constraints  
+
+	 ]]></description>
+</classRec>
+<method name='all' fullname='asmock.framework.constraints:Is/all' isStatic='true' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument be constrained by ALL the 
+
+		 constraints provided.
+
+		 ]]></description>
+<param><![CDATA[value An array of AbstractConstraint objects 
+
+		 ]]></param>
+<return><![CDATA[An And constraint
+
+		 ]]></return>
+<see><![CDATA[And
+
+		 ]]></see>
+</method>
+<method name='anything' fullname='asmock.framework.constraints:Is/anything' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Removes validation on the argument 
+
+		 ]]></description>
+<return><![CDATA[An Anything constraint
+
+		 ]]></return>
+<see><![CDATA[Anything
+
+		 ]]></see>
+</method>
+<method name='any' fullname='asmock.framework.constraints:Is/any' isStatic='true' isFinal='false' isOverride='false'  param_names='constraints' param_types='Array' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument be constrained by ANY the 
+
+		 constraints provided.
+
+		 ]]></description>
+<param><![CDATA[value An array of AbstractConstraint objects 
+
+		 ]]></param>
+<return><![CDATA[An Or constraint
+
+		 ]]></return>
+<see><![CDATA[Or
+
+		 ]]></see>
+</method>
+<method name='equal' fullname='asmock.framework.constraints:Is/equal' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must equal the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[An Equal constraint
+
+		 ]]></return>
+<see><![CDATA[Equal
+
+		 ]]></see>
+</method>
+<method name='greaterThanOrEqual' fullname='asmock.framework.constraints:Is/greaterThanOrEqual' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be greater than or equal to the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A ComparingConstraint
+
+		 ]]></return>
+<see><![CDATA[ComparingConstraint
+
+		 ]]></see>
+</method>
+<method name='greaterThan' fullname='asmock.framework.constraints:Is/greaterThan' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be greater than the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A ComparingConstraint
+
+		 ]]></return>
+<see><![CDATA[ComparingConstraint
+
+		 ]]></see>
+</method>
+<method name='isNull' fullname='asmock.framework.constraints:Is/isNull' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be null
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[An Equal constraint
+
+		 ]]></return>
+<see><![CDATA[Equal
+
+		 ]]></see>
+</method>
+<method name='lessThanOrEqual' fullname='asmock.framework.constraints:Is/lessThanOrEqual' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be less than or equal to the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A ComparingConstraint
+
+		 ]]></return>
+<see><![CDATA[ComparingConstraint
+
+		 ]]></see>
+</method>
+<method name='lessThan' fullname='asmock.framework.constraints:Is/lessThan' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be less than the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A ComparingConstraint
+
+		 ]]></return>
+<see><![CDATA[ComparingConstraint
+
+		 ]]></see>
+</method>
+<method name='matching' fullname='asmock.framework.constraints:Is/matching' isStatic='true' isFinal='false' isOverride='false'  param_names='func' param_types='Function' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies a predicate function that will determine whether the 
+
+		 argument is valid at runtime.
+
+		 ]]></description>
+<param><![CDATA[func The predicate that will accept the argument and return a Boolean  
+
+		 (true if the argument is valid; false otherwise)
+
+		 ]]></param>
+<return><![CDATA[A PredicateConstraint
+
+		 ]]></return>
+<see><![CDATA[PredicateConstraint
+
+		 ]]></see>
+</method>
+<method name='notEqual' fullname='asmock.framework.constraints:Is/notEqual' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must not equal the value provided
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A negated Equal constraint
+
+		 ]]></return>
+<see><![CDATA[Not
+
+		 ]]></see>
+<see><![CDATA[Equal
+
+		 ]]></see>
+</method>
+<method name='notNull' fullname='asmock.framework.constraints:Is/notNull' isStatic='true' isFinal='false' isOverride='false'  result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must not be null
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A negated Equal constraint
+
+		 ]]></return>
+<see><![CDATA[Not
+
+		 ]]></see>
+<see><![CDATA[Equal
+
+		 ]]></see>
+</method>
+<method name='notSame' fullname='asmock.framework.constraints:Is/notSame' isStatic='true' isFinal='false' isOverride='false'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must not be the same object as the value provided. 
+
+		 The values are compared for object instances, not value.
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A negated Same constraint
+
+		 ]]></return>
+<see><![CDATA[Not
+
+		 ]]></see>
+<see><![CDATA[Same
+
+		 ]]></see>
+</method>
+<method name='same' fullname='asmock.framework.constraints:Is/same' isStatic='true' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be the same object as the value provided. 
+
+		 The values are compared for object instances, not value.
+
+		 ]]></description>
+<param><![CDATA[value The value to compare the argument to 
+
+		 ]]></param>
+<return><![CDATA[A Same constraint
+
+		 ]]></return>
+<see><![CDATA[Same
+
+		 ]]></see>
+</method>
+<method name='typeOf' fullname='asmock.framework.constraints:Is/typeOf' isStatic='true' isFinal='false' isOverride='false'  param_names='cls' param_types='Class' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+<description><![CDATA[
+
+		 Specifies that the argument must be, inherit from, or implement 
+
+		 the class provided
+
+		 ]]></description>
+<param><![CDATA[value The type (Class or Interface) 
+
+		 ]]></param>
+<return><![CDATA[A TypeOf constraint
+
+		 ]]></return>
+<see><![CDATA[TypeOf
+
+		 ]]></see>
+</method>
+<classRec name='Equal' fullname='asmock.framework.constraints:Equal' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Equal.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='Equal' fullname='asmock.framework.constraints:Equal/Equal' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Object' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:Equal/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:Equal/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_value' fullname='asmock.framework.constraints:Equal/private:_value' type='Object' isStatic='false' isConst='false' >
+</field>
+<classRec name='Property' fullname='asmock.framework.constraints:Property' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\Property.as' namespace='asmock.framework.constraints' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='isNotNull' fullname='asmock.framework.constraints:Property/isNotNull' isStatic='true' isFinal='false' isOverride='false'  param_names='propertyName' param_types='String' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='isNull' fullname='asmock.framework.constraints:Property/isNull' isStatic='true' isFinal='false' isOverride='false'  param_names='propertyName' param_types='String' param_defaults='undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='valueConstraint' fullname='asmock.framework.constraints:Property/valueConstraint' isStatic='true' isFinal='false' isOverride='false'  param_names='propertyName;constraint' param_types='String;asmock.framework.constraints:AbstractConstraint' param_defaults='undefined;undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<method name='value' fullname='asmock.framework.constraints:Property/value' isStatic='true' isFinal='false' isOverride='false'  param_names='propertyName;expectedValue' param_types='String;Object' param_defaults='undefined;undefined' result_type='asmock.framework.constraints:AbstractConstraint'>
+</method>
+<classRec name='ListEquals' fullname='asmock.framework.constraints:ListEquals' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\ListEquals.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ListEquals' fullname='asmock.framework.constraints:ListEquals/ListEquals' isStatic='false' isFinal='false' isOverride='false'  param_names='values' param_types='mx.collections:IList' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:ListEquals/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:ListEquals/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_values' fullname='asmock.framework.constraints:ListEquals/private:_values' type='mx.collections:IList' isStatic='false' isConst='false' >
+</field>
+<classRec name='ListLength' fullname='asmock.framework.constraints:ListLength' sourcefile='C:\Users\Richard\SVN\asmock\trunk\source\ASMock\src\asmock\framework\constraints\ListLength.as' namespace='asmock.framework.constraints' access='public' baseclass='asmock.framework.constraints:AbstractConstraint' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='ListLength' fullname='asmock.framework.constraints:ListLength/ListLength' isStatic='false' isFinal='false' isOverride='false'  param_names='constraint' param_types='asmock.framework.constraints:AbstractConstraint' param_defaults='undefined' result_type='*'>
+</method>
+<method name='eval' fullname='asmock.framework.constraints:ListLength/eval' isStatic='false' isFinal='false' isOverride='true'  param_names='obj' param_types='Object' param_defaults='undefined' result_type='Boolean'>
+</method>
+<method name='message' fullname='asmock.framework.constraints:ListLength/message/get' isStatic='false' isFinal='false' isOverride='true'  result_type='String'>
+</method>
+<field name='_constraint' fullname='asmock.framework.constraints:ListLength/private:_constraint' type='asmock.framework.constraints:AbstractConstraint' isStatic='false' isConst='false' >
+</field>
+</asdoc>

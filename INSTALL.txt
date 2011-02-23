@@ -1,0 +1,54 @@
+asMock: ActionScript Mocking Framework
+
+For more detailed instructions, examples and integration with other testing frameworks, see the Installation wiki page: http://sourceforge.net/apps/mediawiki/asmock/index.php?title=Installation
+
+SETUP
+======
+
+- Add asmock-v1.0.swc to your library path 
+
+
+FlexUnit v4.1
+--------------
+
+- Add asmock-v1.0-flexunit-v4.1.swc to your library path 
+- Add the IncludeMocks rule to your class, and pass in the types you want to mock:
+
+	[Rule] public var mocks : IncludeMocksRule = new IncludeMocksRule([ISomeInterface, SomeBaseClass]);
+
+- Access MockRepository via the repository property of IncludeMocksRule
+  -OR-
+- In your tests, access MockRepository by creating a new instance of the class 
+
+
+AsUnit v4.0
+--------------
+
+- Add asmock-v1.0-asunit-v4.0.swc to your library path 
+- Add [RunWith("asmock.integration.asunit.ASMockRunner")] to your test class 
+- Add a static Array field, mark it with [Mock], and assign the classes you want to mock:
+
+	[Mock] public static var withMocks : Array = [ISomeInterface, SomeBaseClass];
+
+- Add the following to the "Additional compiler arguments" under "Flex Compiler" in your project properties: 
+
+	"-includes asmock.integration.asunit.ASMockRunner"
+
+- In your tests, access MockRepository by creating a new instance of the class
+
+
+FlexUnit v4.0
+--------------
+
+- Add asmock-v1.0-flexunit-v4.0.swc to your library path 
+- Add [RunWith("asmock.integration.flexunit.ASMockClassRunner")] to your test class 
+- Add a static Array field, mark it with [Mock], and assign the classes you want to mock:
+
+	[Mock] public static var withMocks : Array = [ISomeInterface, SomeBaseClass];
+
+- Add the following to the "Additional compiler arguments" under "Flex Compiler" in your project properties: 
+
+	"-includes asmock.integration.flexunit.ASMockClassRunner"
+
+- In your tests, access MockRepository by creating a new instance of the class
+
